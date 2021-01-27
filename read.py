@@ -6,10 +6,12 @@ with open('reviews.txt', 'r') as f:
 		count += 1 # count = count + 1
 		if count % 1000 == 0: # %是用來求餘數；若count/1000的餘數為0
 			print(len(data))
-print(len(data))
+print('已讀取完檔案，共有', len(data), '筆資料')
+print('---')
+sum_len = 0
+for d in data:
+	sum_len += len(d) # sum_len = sum_len + len(d)
+print('留言總長度為', sum_len)
+print('---')
+print('留言的平均長度為', sum_len/len(data))
 
-print(data) # ctrl + c 強制中斷程式
-print('---')
-print(data[0])
-print('---')
-print(data[1])
