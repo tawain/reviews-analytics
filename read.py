@@ -31,3 +31,19 @@ for d in data:
 print('共有', len(good), '筆留言提到good')
 print(good[0])
 
+# list comprehension(清單快寫法) 35行等於27~30行
+good = [d for d in data if 'good' in d]
+# 第一個d = good.append(d)的d
+print(len(good))
+
+bad = ['bad' in d for d in data] # 'bad' in d 運算（true/false)
+print(bad)
+# output = [(number-1) for number in reference if number % 2 == 0]
+#              運算          變數        清單           篩選條件
+
+
+
+
+
+
+
