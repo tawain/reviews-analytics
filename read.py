@@ -42,7 +42,33 @@ print(bad)
 #              運算          變數        清單           篩選條件
 
 
+# 文字計數
+wc = {} # word_count
+for d in data:
+	words = d.split()
+	for word in words:
+		if word in wc:
+			wc[word] += 1
+		else:
+			wc[word] = 1 # 新增新的key進wc字典
 
+for word in wc:
+	if wc[word] > 1000000:
+		print(word, wc[word])
+
+print(len(wc))
+print(wc['Ben'])
+
+while True:
+	word = input('輸入你想查的字：')
+	if word == 'q':
+		break
+	if word in wc:
+		print(word, '出現過：', wc[word], '次')
+	else:
+		print('這個字沒出現過！')
+
+print('程式結束')
 
 
 
