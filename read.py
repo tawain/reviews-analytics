@@ -1,11 +1,20 @@
+import time
+import tqdm
+
 data = []
 count = 0
+from tqdm import tqdm
+from time import sleep
+with tqdm(total=1000000) as pbar:
+    for i in range(1000):
+        sleep(0.001)
+        pbar.update(1000)
 with open('reviews.txt', 'r') as f:
 	for line in f:
 		data.append(line)
 		count += 1 # count = count + 1
-		if count % 1000 == 0: # %是用來求餘數；若count/1000的餘數為0
-			print(len(data))
+		# if count % 1000 == 0: # %是用來求餘數；若count/1000的餘數為0
+		# 	print(len(data))
 print('已讀取完檔案，共有', len(data), '筆資料')
 print('---')
 sum_len = 0
@@ -37,12 +46,13 @@ good = [d for d in data if 'good' in d]
 print(len(good))
 
 bad = ['bad' in d for d in data] # 'bad' in d 運算（true/false)
-print(bad)
+# print(bad)
 # output = [(number-1) for number in reference if number % 2 == 0]
 #              運算          變數        清單           篩選條件
 
 
 # 文字計數
+start_time = time.time()
 wc = {} # word_count
 for d in data:
 	words = d.split()
@@ -55,7 +65,8 @@ for d in data:
 for word in wc:
 	if wc[word] > 1000000:
 		print(word, wc[word])
-
+end_time = time.time()
+print('費時', end_time - start_time, 'seconds')
 print(len(wc))
 print(wc['Ben'])
 
